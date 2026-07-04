@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AppContext } from "../Context/AppContext";
+import Loader from "../Components/Loader";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [consPass, setConsPass] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   async function Handler(e) {
     e.preventDefault();
@@ -25,6 +28,8 @@ const Register = () => {
     }
 
     try {
+      setLoading(true);
+
       const { data } = await axios.post(
         "https://studyhub-1ln4.onrender.com/api/auth/register",
         {
@@ -39,63 +44,69 @@ const Register = () => {
       navigate("/");
     } catch (err) {
       toast.error(err.response.data.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <div className="login-box">
-      <form onSubmit={Handler}>
-        <img src={logo} className="l-logo" />
-        <p>Create your account</p>
-        <p>Start your journey with us</p>
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          value={username}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email address"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          value={email}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          value={password}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          onChange={(e) => {
-            setConsPass(e.target.value);
-          }}
-          value={consPass}
-          required
-        />
-        <button>Register</button>
-        <p>
-          Already have an account?{" "}
-          <a
-            onClick={() => {
-              navigate("/login");
+      {loading ? (
+        <Loader />
+      ) : (
+        <form onSubmit={Handler}>
+          <img src={logo} className="l-logo" />
+          <p>Create your account</p>
+          <p>Start your journey with us</p>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => {
+              setUsername(e.target.value);
             }}
-          >
-            Login here
-          </a>
-        </p>
-      </form>
+            value={username}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email address"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            value={password}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            onChange={(e) => {
+              setConsPass(e.target.value);
+            }}
+            value={consPass}
+            required
+          />
+          <button>Register</button>
+          <p>
+            Already have an account?{" "}
+            <a
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login here
+            </a>
+          </p>
+        </form>
+      )}
     </div>
   );
 };
