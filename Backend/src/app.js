@@ -8,7 +8,10 @@ const noteRoute = require("./Routes/note.route");
 
 const app = express();
 
-const allowedOrigins = ["http://localhost:3000", "http://localhost:5173"];
+const allowedOrigins = [
+  "https://darkie-study-hub.vercel.app/",
+  "https://studyhub-1ln4.onrender.com/",
+];
 
 app.use(express.json());
 app.use(cookieParser());
