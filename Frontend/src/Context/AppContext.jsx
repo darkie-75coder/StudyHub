@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   async function toggleTask(id) {
     try {
       const { data } = await axios.patch(
-        `http://localhost:3000/api/task/toggle/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/task/toggle/${id}`,
       );
 
       toast.success("Task Updated ✅");
@@ -30,7 +30,7 @@ const AppProvider = ({ children }) => {
   async function getUser() {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/auth/get-user",
+        "https://studyhub-1ln4.onrender.com/api/auth/get-user",
       );
 
       setUser(data.user);
@@ -42,7 +42,7 @@ const AppProvider = ({ children }) => {
   async function getSubjects() {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/subject/get-subjects",
+        "https://studyhub-1ln4.onrender.com/api/subject/get-subjects",
       );
 
       setSubjects(data.subjects);
@@ -54,7 +54,7 @@ const AppProvider = ({ children }) => {
   async function getTasks() {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/task/get-tasks",
+        "https://studyhub-1ln4.onrender.com/api/task/get-tasks",
       );
 
       setTasks(data.tasks);
@@ -66,7 +66,7 @@ const AppProvider = ({ children }) => {
   async function getNotes() {
     try {
       const { data } = await axios.get(
-        "http://localhost:3000/api/note/get-notes",
+        "https://studyhub-1ln4.onrender.com/api/note/get-notes",
       );
 
       setNotes(data.notes);
@@ -79,7 +79,7 @@ const AppProvider = ({ children }) => {
     async function auth() {
       try {
         const { data } = await axios.get(
-          "http://localhost:3000/api/auth/auth-user",
+          "https://studyhub-1ln4.onrender.com/api/auth/auth-user",
         );
 
         await setLoggedIn(true);

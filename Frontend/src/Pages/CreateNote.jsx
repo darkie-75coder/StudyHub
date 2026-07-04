@@ -19,7 +19,7 @@ const CreateNote = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/note/create",
+        "https://studyhub-1ln4.onrender.com/api/note/create",
         {
           title,
           content,

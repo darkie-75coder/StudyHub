@@ -20,7 +20,7 @@ const Tasks = () => {
   async function deleteTask(id) {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3000/api/task/delete/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/task/delete/${id}`,
       );
 
       toast.success(data.message);

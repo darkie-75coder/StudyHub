@@ -22,7 +22,7 @@ const CreateTask = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/task/create",
+        "https://studyhub-1ln4.onrender.com/api/task/create",
         {
           title,
           description,

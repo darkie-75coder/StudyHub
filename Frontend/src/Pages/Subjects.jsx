@@ -19,7 +19,7 @@ const Subjects = () => {
   async function deleteSub(id) {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3000/api/subject/delete/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/subject/delete/${id}`,
       );
 
       await setSubjects(subjects.filter((subject) => subject._id !== id));

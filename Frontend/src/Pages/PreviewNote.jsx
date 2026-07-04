@@ -21,7 +21,7 @@ const PreviewNote = () => {
   async function deleteNote(id) {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3000/api/note/delete/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/note/delete/${id}`,
       );
 
       toast.success(data.message);
@@ -35,7 +35,7 @@ const PreviewNote = () => {
   async function getNotes() {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/api/note/getNote/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/note/getNote/${id}`,
       );
 
       setNote(data.note);

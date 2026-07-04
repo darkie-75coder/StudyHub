@@ -22,7 +22,7 @@ const Notes = () => {
   async function deleteNote(id) {
     try {
       const { data } = await axios.delete(
-        `http://localhost:3000/api/note/delete/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/note/delete/${id}`,
       );
 
       toast.success(data.message);

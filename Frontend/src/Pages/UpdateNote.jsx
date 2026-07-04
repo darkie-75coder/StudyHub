@@ -21,7 +21,7 @@ const UpdateNote = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:3000/api/note/update/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/note/update/${id}`,
         {
           title,
           content,
@@ -40,7 +40,7 @@ const UpdateNote = () => {
   async function getNote() {
     try {
       const { data } = await axios.get(
-        `http://localhost:3000/api/note/getNote/${id}`,
+        `https://studyhub-1ln4.onrender.com/api/note/getNote/${id}`,
       );
 
       setContent(data.note.content);

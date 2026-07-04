@@ -19,7 +19,7 @@ const CreateSubject = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/subject/create",
+        "https://studyhub-1ln4.onrender.com/api/subject/create",
         {
           name,
           color,
