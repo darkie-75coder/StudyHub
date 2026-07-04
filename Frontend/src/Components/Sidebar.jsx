@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../assets/logo.png";
 import { AppContext } from "../Context/AppContext";
 import { GoHome } from "react-icons/go";
