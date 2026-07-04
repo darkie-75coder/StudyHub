@@ -9,8 +9,8 @@ const noteRoute = require("./Routes/note.route");
 const app = express();
 
 const allowedOrigins = [
-  "https://darkie-study-hub.vercel.app/",
-  "https://studyhub-1ln4.onrender.com/",
+  "https://darkie-study-hub.vercel.app",
+  "https://studyhub-1ln4.onrender.com",
 ];
 
 app.use(express.json());
