@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Loader from "../Components/Loader";
 
 export const AppContext = createContext();
 
@@ -10,6 +11,8 @@ const AppProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [notes, setNotes] = useState([]);
   const [user, setUser] = useState({});
+
+  const [loading, setLoading] = useState(false);
 
   axios.defaults.withCredentials = true;
 
@@ -78,6 +81,8 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     async function auth() {
       try {
+        setLoading(true);
+
         const { data } = await axios.get(
           "https://studyhub-1ln4.onrender.com/api/auth/auth-user",
         );
@@ -90,6 +95,8 @@ const AppProvider = ({ children }) => {
         await getNotes();
       } catch (err) {
         setLoggedIn(false);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -115,7 +122,7 @@ const AppProvider = ({ children }) => {
   //prettier-ignore
   return (
           <AppContext.Provider value={values}>
-              {children}
+              {loading ? <Loader /> : children}
           </AppContext.Provider>
       )
 };
