@@ -63,7 +63,7 @@ const Dashboard = () => {
       navigate("/");
       toast.error("You are not logged In ❌");
     }
-  }, [tasks, loggedIn]);
+  }, [loggedIn]);
 
   return (
     <div className="dashboard">

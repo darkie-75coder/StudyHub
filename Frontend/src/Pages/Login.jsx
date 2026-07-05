@@ -32,8 +32,8 @@ const Login = () => {
         },
       );
 
+      setLoggedIn(true);
       toast.success(data.message);
-      await setLoggedIn(true);
       navigate("/");
     } catch (err) {
       toast.error(err.response.data.message);

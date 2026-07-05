@@ -101,7 +101,7 @@ const AppProvider = ({ children }) => {
     }
 
     auth();
-  }, []);
+  }, [loggedIn]);
 
   const values = {
     loggedIn,

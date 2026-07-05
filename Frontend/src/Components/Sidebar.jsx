@@ -27,6 +27,7 @@ const Sidebar = () => {
         "https://studyhub-1ln4.onrender.com/api/auth/logout",
       );
 
+      setLoggedIn(false);
       toast.success(data.message);
       navigate("/");
     } catch (err) {
