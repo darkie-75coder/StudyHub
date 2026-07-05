@@ -16,15 +16,15 @@ const Register = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const { setLoggedIn } = useContext(AppContext);
+
   async function Handler(e) {
     e.preventDefault();
-
-    const { setLoggedIn } = useContext(AppContext);
 
     axios.defaults.withCredentials = true;
 
     if (password !== consPass) {
-      return toast.error("The password do not matched.");
+      return toast.error("Passwords do not match.");
     }
 
     try {

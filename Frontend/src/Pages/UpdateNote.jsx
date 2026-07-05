@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AppContext } from "../Context/AppContext";
 import { MdOutlineEditNote } from "react-icons/md";
+import Loader from "../Components/Loader";
 
 const UpdateNote = () => {
   const { id } = useParams();
@@ -16,10 +17,14 @@ const UpdateNote = () => {
   const [title, setTitle] = useState("");
   const [subject, setSubject] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   async function Handler(e) {
     e.preventDefault();
 
     try {
+      setLoading(true);
+
       const { data } = await axios.put(
         `https://studyhub-1ln4.onrender.com/api/note/update/${id}`,
         {
@@ -34,11 +39,15 @@ const UpdateNote = () => {
       navigate("/notes");
     } catch (err) {
       toast.error(err.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   async function getNote() {
     try {
+      setLoading(true);
+
       const { data } = await axios.get(
         `https://studyhub-1ln4.onrender.com/api/note/getNote/${id}`,
       );
@@ -48,6 +57,8 @@ const UpdateNote = () => {
       setSubject(data.note.subject);
     } catch (err) {
       toast.error(err.message);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -57,72 +68,76 @@ const UpdateNote = () => {
 
   return (
     <div className="form-box" onSubmit={Handler}>
-      <form>
-        <div className="head">
-          <MdOutlineEditNote
-            className="form-icon"
-            style={{ background: "#A855F736", color: "#A855F7" }}
-          />
-          <div className="form-txt">
-            <h1>Update Note</h1>
-            <p>Make changes to your note</p>
+      {loading ? (
+        <Loader />
+      ) : (
+        <form>
+          <div className="head">
+            <MdOutlineEditNote
+              className="form-icon"
+              style={{ background: "#A855F736", color: "#A855F7" }}
+            />
+            <div className="form-txt">
+              <h1>Update Note</h1>
+              <p>Make changes to your note</p>
+            </div>
           </div>
-        </div>
-        <div className="inp-box">
-          <h2>Note Title</h2>
-          <input
-            type="text"
-            placeholder="Enter note title"
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-            value={title}
-            required
-          />
-        </div>
-        <div className="inp-box">
-          <h2>Note Content</h2>
-          <textarea
-            onChange={(e) => {
-              setContent(e.target.value);
-            }}
-            value={content}
-            rows="7"
-            cols="45"
-            placeholder="Write your note content here"
-            required
-          ></textarea>
-        </div>
-        <div className="inp-box">
-          <h2>Subject</h2>
-          <select
-            onChange={(e) => {
-              setSubject(e.target.value);
-            }}
-            value={subject}
-          >
-            <option value="">Select Subject</option>
-            {subjects.map((sub) => {
-              return (
-                <option value={sub._id} key={sub._id}>
-                  {sub.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className="submit-btns">
-          <button
-            type="button"
-            onClick={() => {
-              navigate("/notes");
-            }}
-          >
-            Cancel
-          </button>
-          <button type="submit">Update Note</button>
-        </div>
-      </form>
+          <div className="inp-box">
+            <h2>Note Title</h2>
+            <input
+              type="text"
+              placeholder="Enter note title"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+              value={title}
+              required
+            />
+          </div>
+          <div className="inp-box">
+            <h2>Note Content</h2>
+            <textarea
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
+              value={content}
+              rows="7"
+              cols="45"
+              placeholder="Write your note content here"
+              required
+            ></textarea>
+          </div>
+          <div className="inp-box">
+            <h2>Subject</h2>
+            <select
+              onChange={(e) => {
+                setSubject(e.target.value);
+              }}
+              value={subject}
+            >
+              <option value="">Select Subject</option>
+              {subjects.map((sub) => {
+                return (
+                  <option value={sub._id} key={sub._id}>
+                    {sub.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="submit-btns">
+            <button
+              type="button"
+              onClick={() => {
+                navigate("/notes");
+              }}
+            >
+              Cancel
+            </button>
+            <button type="submit">Update Note</button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

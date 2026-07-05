@@ -15,6 +15,8 @@ const Tasks = () => {
 
   const { tasks, setTasks, subjects, toggleTask } = useContext(AppContext);
 
+  const [loading, setLoading] = useState(false);
+
   const [showWarn, setShowWarn] = useState(null);
 
   async function deleteTask(id) {
