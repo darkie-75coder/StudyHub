@@ -425,6 +425,7 @@ li {
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -466,10 +467,6 @@ li {
 .u-icons {
   font-size: 35px;
   margin-top: 5px;
-}
-
-.upcoming-tasks .up-task {
-  overflow-y: scroll;
 }
 
 .sub-box {
