@@ -1130,11 +1130,9 @@ li {
   --uib-color: #183153;
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
-  width: 100%;
+  justify-content: center;
+  height: var(--uib-size);
 }
 
 .dot-spinner__dot {

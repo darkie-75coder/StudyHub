@@ -14,7 +14,8 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Dashboard = () => {
-  const { user, tasks, subjects, notes, toggleTask } = useContext(AppContext);
+  const { user, tasks, subjects, notes, toggleTask, loggedIn } =
+    useContext(AppContext);
 
   const [checked, setChecked] = useState(null);
 
@@ -55,9 +56,14 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    calc_pending_tasks();
-    calc_completed_tasks();
-  }, [tasks]);
+    if (loggedIn) {
+      calc_pending_tasks();
+      calc_completed_tasks();
+    } else {
+      navigate("/");
+      toast.error("You are not logged In ❌");
+    }
+  }, [tasks, loggedIn]);
 
   return (
     <div className="dashboard">
