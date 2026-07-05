@@ -111,7 +111,7 @@ const Dashboard = () => {
         <div className="upcoming-tasks">
           <h1>Upcoming Tasks</h1>
           <div
-            className="tasks"
+            className="up-task"
             onClick={() => {
               navigate("/tasks");
             }}

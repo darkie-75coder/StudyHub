@@ -438,6 +438,7 @@ li {
   display: flex;
   align-items: center;
   gap: 20px;
+  overflow-y: scroll;
 }
 
 .upcoming-tasks .u-t label {
@@ -465,6 +466,10 @@ li {
 .u-icons {
   font-size: 35px;
   margin-top: 5px;
+}
+
+.upcoming-tasks .up-task {
+  overflow-y: scroll;
 }
 
 .sub-box {
