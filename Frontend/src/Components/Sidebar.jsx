@@ -28,7 +28,6 @@ const Sidebar = () => {
       );
 
       toast.success(data.message);
-      setLoggedIn(false);
       navigate("/");
     } catch (err) {
       toast.error(err.response.data.message);
