@@ -191,6 +191,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 2px solid #dadada;
   gap: 10px;
   padding: 10px 20px;
   border-radius: 12px;
@@ -428,9 +429,6 @@ li {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-}
-
-.upcoming-tasks .up-task {
   overflow: auto;
 }
 
@@ -1127,6 +1125,7 @@ li {
 
 .loader {
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
