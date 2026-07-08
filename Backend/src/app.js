@@ -11,6 +11,7 @@ const app = express();
 const allowedOrigins = [
   "https://darkie-study-hub.vercel.app",
   "https://studyhub-1ln4.onrender.com",
+  "http://localhost:5173",
 ];
 
 app.use(express.json());
