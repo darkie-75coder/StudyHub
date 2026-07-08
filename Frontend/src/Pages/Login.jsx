@@ -4,12 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AppContext } from "../Context/AppContext";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
 import Loader from "../Components/Loader";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const { setLoggedIn } = useContext(AppContext);
+
+  const [type, setType] = useState("password");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,15 +64,39 @@ const Login = () => {
             value={email}
             required
           />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            value={password}
-            required
-          />
+          <div className="pass-inp">
+            <input
+              type={type}
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              value={password}
+              required
+            />
+            {type === "password" ? (
+              <button
+                className="eye-btn"
+                type="button"
+                onClick={() => {
+                  setType("text");
+                }}
+              >
+                <FaEye />{" "}
+              </button>
+            ) : (
+              <button
+                className="eye-btn"
+                type="button"
+                onClick={() => {
+                  setType("password");
+                }}
+              >
+                <FaEyeSlash />
+              </button>
+            )}
+          </div>
+
           <a href="#">Forgot password?</a>
           <button type="submit">Login</button>
           <p>

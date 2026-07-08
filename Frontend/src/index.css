@@ -222,6 +222,35 @@ body {
   height: 52px;
   font-size: 16px;
   font-weight: 700;
+  background: transparent;
+}
+
+.login-box .pass-inp {
+  width: 100%;
+  border: 2px solid #dadada;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 0 20px 0 0;
+}
+
+.login-box .pass-inp svg {
+  font-size: 22px;
+}
+
+.login-box .pass-inp .eye-btn {
+  width: fit-content;
+  background: transparent;
+  color: #000;
+  height: fit-content;
+  margin: 0 0 0;
+  padding: 10px;
+}
+
+.login-box .pass-inp input {
+  border: none;
 }
 
 a {
