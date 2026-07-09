@@ -50,7 +50,7 @@ const AppProvider = ({ children }) => {
 
       setSubjects(data.subjects);
     } catch (err) {
-      toast.error(err.message);
+      toast.error(err.response.data.message);
     }
   }
 

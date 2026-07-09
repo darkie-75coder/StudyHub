@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
 import DeleteBox from "../Components/DeleteBox";
+import { LuMenu } from "react-icons/lu";
+import { RxCross2 } from "react-icons/rx";
 
 const Tasks = () => {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const Tasks = () => {
   const { tasks, setTasks, subjects, toggleTask } = useContext(AppContext);
 
   const [loading, setLoading] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
   const [showWarn, setShowWarn] = useState(null);
 
   async function deleteTask(id) {
@@ -49,9 +51,25 @@ const Tasks = () => {
 
   return (
     <div className="sub-box">
-      <Sidebar />
+      {showMenu && <Sidebar setShowMenu={setShowMenu} />}
+
       <div className="sub-content">
         <div className="top-nav">
+          {showMenu ? (
+            <RxCross2
+              style={{ fontSize: "30px" }}
+              onClick={() => {
+                setShowMenu(false);
+              }}
+            />
+          ) : (
+            <LuMenu
+              style={{ fontSize: "30px" }}
+              onClick={() => {
+                setShowMenu(true);
+              }}
+            />
+          )}
           <h1>Tasks</h1>
           <button
             className="create-btn"

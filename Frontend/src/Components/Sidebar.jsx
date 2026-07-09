@@ -10,8 +10,9 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
+import { RxCross1 } from "react-icons/rx";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const { setLoggedIn } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -82,6 +83,14 @@ const Sidebar = () => {
           <li className="last-li" onClick={logout}>
             <LuLogOut className="icon" /> Logout
           </li>
+          <div
+            className="cross-btn"
+            onClick={() => {
+              props.setShowMenu(false);
+            }}
+          >
+            <RxCross1 />
+          </div>
         </ul>
       )}
     </div>

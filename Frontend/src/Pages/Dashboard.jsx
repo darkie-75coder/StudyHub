@@ -8,7 +8,8 @@ import { MdAccessTime } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
-
+import { LuMenu } from "react-icons/lu";
+import { RxCross2 } from "react-icons/rx";
 import { toast } from "react-toastify";
 
 import axios from "axios";
@@ -28,6 +29,7 @@ const Dashboard = () => {
 
   const [pendTask, setPendTask] = useState(0);
   const [compTasks, setCompTasks] = useState(0);
+  const [showMenu, setShowMenu] = useState(false);
   const sub = subjects?.length || 0;
   const count_notes = notes?.length || 0;
 
@@ -67,12 +69,31 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <Sidebar />
+      {showMenu && <Sidebar setShowMenu={setShowMenu} />}
       <div className="dash-content">
         <div className="top-nav dash-nav">
+          {showMenu ? (
+            <RxCross2
+              style={{ fontSize: "30px" }}
+              onClick={() => {
+                setShowMenu(false);
+              }}
+            />
+          ) : (
+            <LuMenu
+              style={{ fontSize: "30px" }}
+              onClick={() => {
+                setShowMenu(true);
+              }}
+            />
+          )}
+
           <h1>
             <GoHome className="lulisodnewnfioe" /> Dashboard
           </h1>
+          <div className="prof-img">
+            {user.username.slice(0, 1).toUpperCase()}
+          </div>
         </div>
         <h2 className="head">Welcome back, {user.username}! 👋 </h2>
         <span>Let's make today productive.</span>

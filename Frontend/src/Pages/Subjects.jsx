@@ -9,6 +9,8 @@ import DeleteBox from "../Components/DeleteBox";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Loader from "../Components/Loader";
+import { LuMenu } from "react-icons/lu";
+import { RxCross2 } from "react-icons/rx";
 
 const Subjects = () => {
   const { subjects, setSubjects } = useContext(AppContext);
@@ -16,7 +18,7 @@ const Subjects = () => {
   const navigate = useNavigate();
 
   const [showWarn, setShowWarn] = useState(null);
-
+  const [showMenu, setShowMenu] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function deleteSub(id) {
@@ -39,12 +41,27 @@ const Subjects = () => {
 
   return (
     <div className="sub-box">
-      <Sidebar />
+      {showMenu && <Sidebar setShowMenu={setShowMenu} />}
       {loading ? (
         <Loader />
       ) : (
         <div className="sub-content">
           <div className="top-nav">
+            {showMenu ? (
+              <RxCross2
+                style={{ fontSize: "30px" }}
+                onClick={() => {
+                  setShowMenu(false);
+                }}
+              />
+            ) : (
+              <LuMenu
+                style={{ fontSize: "30px" }}
+                onClick={() => {
+                  setShowMenu(true);
+                }}
+              />
+            )}
             <h1>Subjects</h1>
             <button
               className="create-btn"
