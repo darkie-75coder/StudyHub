@@ -195,18 +195,45 @@ body {
   gap: 10px;
   padding: 10px 20px;
   border-radius: 12px;
-  width: 600px;
+  width: 35vw;
 }
 
 .login-box form p:nth-child(2) {
-  font-size: 35px;
+  font-size: 2vw;
   font-weight: 700;
 }
 
 .login-box form p:nth-child(3) {
-  font-size: 20px;
+  font-size: 1.2vw;
   color: #83858c;
   margin-bottom: 18px;
+}
+
+.login-box form p:last-child {
+  font-size: 1vw;
+  margin-top: 20px;
+}
+
+@media (max-width: 850px) {
+  .login-box form {
+    width: 90vw;
+  }
+
+  .login-box form p:nth-child(2) {
+    font-size: 6vw;
+    font-weight: 700;
+  }
+
+  .login-box form p:nth-child(3) {
+    font-size: 4vw;
+    color: #83858c;
+    margin-bottom: 18px;
+  }
+
+  .login-box form p:last-child {
+    font-size: 3.5vw;
+    margin-top: 20px;
+  }
 }
 
 .l-logo {
@@ -245,7 +272,7 @@ body {
   background: transparent;
   color: #000;
   height: fit-content;
-  margin: 0 0 0;
+  margin: 5px 0 0 0;
   padding: 10px;
 }
 
@@ -271,11 +298,6 @@ a {
   font-size: 20px;
   color: #fff;
   margin-top: 30px;
-}
-
-.login-box form p:last-child {
-  font-size: 18px;
-  margin-top: 20px;
 }
 
 .sidebar {
