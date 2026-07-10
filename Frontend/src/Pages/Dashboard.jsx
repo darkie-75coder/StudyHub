@@ -67,6 +67,8 @@ const Dashboard = () => {
     }
   }, [loggedIn]);
 
+  const username = user.username;
+
   return (
     <div className="dashboard">
       {showMenu && <Sidebar setShowMenu={setShowMenu} />}
@@ -91,9 +93,7 @@ const Dashboard = () => {
           <h1>
             <GoHome className="lulisodnewnfioe" /> Dashboard
           </h1>
-          <div className="prof-img">
-            {user.username.slice(0, 1).toUpperCase()}
-          </div>
+          <div className="prof-img">{username?.slice(0, 1).toUpperCase()}</div>
         </div>
         <h2 className="head">Welcome back, {user.username}! 👋 </h2>
         <span>Let's make today productive.</span>

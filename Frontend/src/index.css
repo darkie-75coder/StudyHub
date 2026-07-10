@@ -569,7 +569,7 @@ li {
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px;
   color: #fff;
   border: none;
   outline: none;
@@ -792,7 +792,7 @@ li {
 .tasks .task .task-btns {
   display: flex;
   justify-content: flex-end;
-  gap: 50px;
+  gap: 10px;
 }
 
 .tasks .task div {
@@ -849,11 +849,11 @@ li {
 }
 
 .notes .note h1 {
-  font-size: 2.6vw;
+  font-size: 2.2vw;
 }
 
 .notes .note span {
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   font-weight: 600;
   color: #575B6A;
 }
@@ -872,7 +872,7 @@ li {
 
 .notes .note button {
   padding: 10px;
-  font-size: 35px;
+  font-size: 3.6vw;
   background: transparent;
   border: none;
   outline: none;
@@ -895,15 +895,14 @@ li {
 }
 
 .notes .note .btns button:first-child {
-  padding: 5px 10px;
-  font-size: 18px;
+  padding: 5px 20px;
+  font-size: 2vw;
   font-weight: 700;
-  width: 170px;
+  width: fit-content;
   background: transparent;
   border: 2px solid #5F48E7;
   border-radius: 8px;
   color: #000;
-  font-size: 20px;
   height: 55px;
 }
 
@@ -922,15 +921,18 @@ li {
   padding: 30px;
   border: 2px solid #dadada;
   border-radius: 12px;
+  width: 90vw;
 }
 
 .form-box form .form-icon {
-  font-size: 85px;
+  font-size: 10vh;
   color: #4F8EF7;
   background: #4F8EF736;
   padding: 8px;
   border-radius: 12px;
+  width: fit-content;
   margin-right: 20px;
+  height: fit-content;
 }
 
 .form-box form .head {
@@ -939,14 +941,14 @@ li {
 }
 
 .form-box .head h1 {
-  font-size: 30px;
+  font-size: 2.8vw;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .form-box .head p {
-  font-size: 21px;
-  width: 400px;
+  font-size: 1.7vw;
+  width: 100%;
   color: #737780;
 }
 
@@ -959,6 +961,7 @@ li {
 
 .inp-box h2 {
   margin-left: 8px;
+  font-size: 2.2vw;
 }
 
 .inp-box input {
@@ -1049,7 +1052,9 @@ li {
 .color-btns {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .submit-btns {
@@ -1089,7 +1094,7 @@ li {
 
 .task-desc .head-task h1 {
   text-align: center;
-  font-size: 37px;
+  font-size: 3vw;
   font-weight: 700;
   display: flex;
   justify-content: center;
@@ -1098,7 +1103,7 @@ li {
   background: #22C55E36;
   color: #22C55E;
   border-radius: 12px;
-  width: fit-content;
+  width: 90vh;
   padding: 10px;
   margin: 0 0 20px 0;
 }
@@ -1134,9 +1139,11 @@ li {
 }
 
 .prev-task-btns {
-  display: flex;
+  display: grid;
   justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   width: 100%;
+  gap: 20px;
   margin-top: 60px;
 }
 
@@ -1145,9 +1152,8 @@ li {
   border: 2px solid #dadada;
   outline: none;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 2.2vw;
   font-weight: 700;
-  width: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1176,7 +1182,7 @@ li {
 }
 
 .edrt {
-  font-size: 26px;
+  font-size: 2.5vw;
 }
 
 .cross-btn {
@@ -1195,14 +1201,65 @@ li {
     overflow: auto;
   }
 
+  .inp-box h2 {
+    margin-left: 8px;
+    font-size: 1.3vw;
+  }
+
+  .form-box .head h1 {
+    font-size: 1.8vw;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .form-box .head p {
+    font-size: 1.2vw;
+    width: 400px;
+    color: #737780;
+  }
+
+  .notes .note .btns button:first-child {
+    font-size: 1.3vw;
+  }
+
+  .notes .note button {
+    padding: 10px;
+    font-size: 2vw;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EA5F60;
+    cursor: pointer;
+  }
+
+  .task-desc .head-task h1 {
+    font-size: 2.4vw;
+  }
+
   .top-nav h1 {
     font-size: 1.8vw;
+  }
+
+  .edrt {
+    font-size: 1.6vw;
+  }
+
+  .prev-task-btns button {
+    font-size: 1.4vw;
   }
 
   .del-box h1 {
     width: 100%;
     font-size: 1.5vw;
     text-align: center;
+  }
+
+  .notes .note .btns button:first-child {
+    width: 11vw;
   }
 
   .subjects .subject .left-sub .sub-txt span {
@@ -1213,11 +1270,48 @@ li {
     font-size: 1.5vw;
   }
 
+  .notes .note h1 {
+    font-size: 1.5vw;
+  }
+
+  .notes .note span {
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: #575B6A;
+  }
+
 }
 
 @media (max-width: 850px) {
   .login-box form {
     width: 90vw;
+  }
+
+  .inp-box h2 {
+    margin-left: 8px;
+    font-size: 2.8vw;
+  }
+
+  .form-box .head h1 {
+    font-size: 3.4vw;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .form-box .head p {
+    font-size: 2.3vw;
+  }
+
+  .notes .note .btns button:first-child {
+    font-size: 2.7vw;
+  }
+
+  .notes .note .btns button:first-child {
+    width: fit-content;
+  }
+
+  .task-desc .head-task h1 {
+    font-size: 4.6vw;
   }
 
   .login-box form p:nth-child(2) {
@@ -1237,6 +1331,18 @@ li {
 
   .notes .note span {
     font-size: 2vw;
+  }
+
+  .notes .note button {
+    font-size: 4.6vw;
+  }
+
+  .edrt {
+    font-size: 3vw;
+  }
+
+  .prev-task-btns button {
+    font-size: 2.8vw;
   }
 
   .login-box form p:last-child {
@@ -1298,10 +1404,54 @@ li {
 }
 
 @media (max-width: 600px) {
+
   .subjects .subject .left-sub .sub-txt span {
     font-size: 3.6vw;
     font-weight: 600;
     color: #747880;
+  }
+
+  .notes .note .btns button:first-child {
+    font-size: 3vw;
+  }
+
+  .inp-box h2 {
+    margin-left: 8px;
+    font-size: 4vw;
+  }
+
+  .form-box .head h1 {
+    font-size: 4.6vw;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .form-box .head p {
+    font-size: 3.7vw;
+  }
+
+  .notes .note button {
+    font-size: 6vw;
+  }
+
+  .task-desc .head-task h1 {
+    font-size: 5.4vw;
+  }
+
+  .notes .note h1 {
+    font-size: 3.7vw;
+  }
+
+  .notes .note span {
+    font-size: 2.6vw;
+  }
+
+  .prev-task-btns button {
+    font-size: 5vw;
+  }
+
+  .edrt {
+    font-size: 6vw;
   }
 
   .del-box h1 {
@@ -1323,6 +1473,13 @@ li {
     color: #fff;
   }
 
+  .notes .note .note-img {
+    font-size: 60px;
+    margin-right: 20px;
+    border-radius: 12px;
+    padding: 12px;
+  }
+
   .del-box .del-opt button:first-child {
     border: 2px solid #E2E4E7;
     background: transparent;
@@ -1332,6 +1489,18 @@ li {
   .subjects .subject .left-sub .sub-txt h2 {
     font-size: 5vw;
   }
+
+  .submit-btns button {
+    padding: 10px 20px;
+    width: 150px;
+    border-radius: 8px;
+    border: 2px solid #dadada;
+    outline: none;
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    height: 50px;
+  }
 }
 
 .loader {
@@ -1339,11 +1508,9 @@ li {
   inset: 0;
   width: 100vw;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: #fff;
   z-index: 9999;
 }

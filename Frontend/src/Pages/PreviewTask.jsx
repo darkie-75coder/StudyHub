@@ -9,6 +9,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import { AppContext } from "../Context/AppContext";
 import Loader from "../Components/Loader";
+import { RxCrossCircled } from "react-icons/rx";
 
 const PreviewTask = () => {
   const { id } = useParams();
@@ -60,7 +61,7 @@ const PreviewTask = () => {
 
   return (
     <div className="sub-box">
-      <Sidebar />
+      {" "}
       {loading ? (
         <Loader />
       ) : (
@@ -100,7 +101,7 @@ const PreviewTask = () => {
                 }}
                 className="drrdrdrdrd"
               >
-                Cancel
+                Cancel <RxCrossCircled className="edrt" />
               </button>
               {task.status === "pending" ? (
                 <button

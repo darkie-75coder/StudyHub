@@ -74,6 +74,7 @@ const AppProvider = ({ children }) => {
 
       setNotes(data.notes);
     } catch (err) {
+      nav;
       toast.error(err.message);
     }
   }

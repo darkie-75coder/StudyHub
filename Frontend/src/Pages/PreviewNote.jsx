@@ -9,6 +9,8 @@ import Sidebar from "../Components/Sidebar";
 import { AppContext } from "../Context/AppContext";
 import { MdOutlineEdit } from "react-icons/md";
 import Loader from "../Components/Loader";
+import { RxCross2 } from "react-icons/rx";
+import { RxCrossCircled } from "react-icons/rx";
 
 const PreviewNote = () => {
   const { id } = useParams();
@@ -61,7 +63,6 @@ const PreviewNote = () => {
 
   return (
     <div className="sub-box">
-      <Sidebar />
       {loading ? (
         <Loader />
       ) : (
@@ -101,7 +102,7 @@ const PreviewNote = () => {
                 }}
                 className="drrdrdrdrd"
               >
-                Cancel
+                Cancel <RxCrossCircled className="edrt" />
               </button>
               <button
                 onClick={() => {
@@ -118,7 +119,7 @@ const PreviewNote = () => {
                   navigate("/notes");
                 }}
               >
-                Delete Note <BiTrash style={{ fontSize: "25px" }} />{" "}
+                Delete Note <BiTrash className="edrt" />{" "}
               </button>
             </div>
           </div>
