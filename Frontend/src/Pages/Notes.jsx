@@ -123,20 +123,22 @@ const Notes = () => {
                       >
                         View Note
                       </button>
-                      <button
-                        onClick={() => {
-                          navigate(`/updateNote/${note._id}`);
-                        }}
-                      >
-                        <MdOutlineEdit />
-                      </button>
-                      <button
-                        onClick={() => {
-                          setShowWarn(note._id);
-                        }}
-                      >
-                        <MdDelete />
-                      </button>
+                      <div>
+                        <button
+                          onClick={() => {
+                            navigate(`/updateNote/${note._id}`);
+                          }}
+                        >
+                          <MdOutlineEdit />
+                        </button>
+                        <button
+                          onClick={() => {
+                            setShowWarn(note._id);
+                          }}
+                        >
+                          <MdDelete />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 );
