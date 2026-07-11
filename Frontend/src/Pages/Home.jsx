@@ -6,6 +6,7 @@ import graduateHat from "../assets/graduate-hat.png";
 import { BiSolidNotepad } from "react-icons/bi";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../Context/AppContext";
+import { FaBook } from "react-icons/fa";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -71,19 +72,25 @@ const Home = () => {
       </div>
       <div className="boxes">
         <div className="box">
-          <img src={graduateHat} className="g-h" />
-          <p>Manage Subjects</p>
-          <p>Keep all your subjects organized in one place.</p>
+          <FaBook className="g-h" />
+          <div>
+            <p>Manage Subjects</p>
+            <p>Keep all your subjects organized in one place.</p>
+          </div>
         </div>
         <div className="box">
           <BiTask className="t-i" />
-          <p>Track Tasks</p>
-          <p>Create manage and complete tasks easily.</p>
+          <div>
+            <p>Track Tasks</p>
+            <p>Create manage and complete tasks easily.</p>
+          </div>
         </div>
         <div className="box">
           <BiSolidNotepad className="n-i" />
-          <p>Take Notes</p>
-          <p>Write, organize and access your notes anytime.</p>
+          <div>
+            <p>Take Notes</p>
+            <p>Write, organize and access your notes anytime.</p>
+          </div>
         </div>
       </div>
     </div>

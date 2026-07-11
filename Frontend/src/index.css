@@ -49,7 +49,10 @@ body {
   outline: none;
   border: 2px solid #dadada;
   color: #000;
-  font-weight: 700;
+  font-family: 'DynaPuff';
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .log-reg-btns button:last-child {
@@ -63,12 +66,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2vw;
+  height: fit-content;
+  padding: 0 30px;
+  gap: 10vw;
 }
 
 .title div,
 .title h1 {
-  font-size: 50px;
+  font-size: 4vw;
   font-weight: 900;
   animation: slide 800ms ease-in 200ms;
 }
@@ -104,27 +109,26 @@ body {
 }
 
 .left-side p {
-  font-size: 20px;
-  width: 500px;
+  font-size: 2vw;
+  width: 100%;
 }
 
 .r-img {
-  height: 350px;
+  height: 30vw;
   animation: show 1s linear 200ms;
 }
 
 .g-h {
-  height: 60px;
-  width: 90px;
   background: #5c49ec34;
   border-radius: 12px;
   padding: 10px 20px;
+  color: #5D48EA;
+  font-size: 100px;
 }
 
 .t-i {
   color: #4DBB66;
-  height: 60px;
-  width: 80px;
+  font-size: 100px;
   background: #4dbb6742;
   border-radius: 12px;
   padding: 8px;
@@ -132,32 +136,40 @@ body {
 
 .n-i {
   color: #fdaa09;
-  height: 60px;
-  width: 78px;
+  height: 100px;
+  width: 100px;
   background: #fdac0946;
   border-radius: 12px;
   padding: 10px 20px;
 }
 
 .boxes {
-  display: flex;
+  display: grid;
   width: 100%;
-  justify-content: space-evenly;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
 .boxes .box {
   height: fit-content;
-  width: 300px;
   padding: 20px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 0 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 30px;
   transition: all 800ms ease;
+}
+
+.boxes .box div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .boxes .box:hover {
@@ -167,11 +179,11 @@ body {
 .boxes .box p:last-child {
   color: #83858c;
   font-weight: 600;
-  font-size: 18px;
-  width: 250px;
+  font-size: 1.5vw;
+  width: 220px;
 }
 
-.boxes .box p:nth-child(2) {
+.boxes .box p:first-child {
   color: #000;
   font-size: 25px;
   font-weight: 600;
@@ -236,7 +248,8 @@ body {
 }
 
 .l-logo {
-  height: 80px;
+  height: 60px;
+  margin-bottom: 20px;
 }
 
 .login-box form input {
@@ -406,7 +419,7 @@ li {
   display: grid;
   margin: 50px 0 50px;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.6em;
 }
 
@@ -1201,6 +1214,35 @@ li {
     overflow: auto;
   }
 
+  .title div,
+  .title h1 {
+    font-size: 2.6vw;
+  }
+
+  .r-img {
+    height: 20vw;
+    animation: show 1s linear 200ms;
+  }
+
+  .left-side p {
+    font-size: 1.3vw;
+    width: 550px;
+  }
+
+
+  .boxes .box p:last-child {
+    color: #83858c;
+    font-weight: 600;
+    font-size: 1vw;
+    width: 220px;
+  }
+
+  .boxes .box p:first-child {
+    color: #000;
+    font-size: 1.4vw;
+    font-weight: 600;
+  }
+
   .inp-box h2 {
     margin-left: 8px;
     font-size: 1.3vw;
@@ -1287,6 +1329,11 @@ li {
     width: 90vw;
   }
 
+  .left-side p {
+    font-size: 2.6vw;
+    width: 100%;
+  }
+
   .inp-box h2 {
     margin-left: 8px;
     font-size: 2.8vw;
@@ -1296,6 +1343,19 @@ li {
     font-size: 3.4vw;
     font-weight: 700;
     margin-bottom: 10px;
+  }
+
+  .boxes .box p:last-child {
+    color: #83858c;
+    font-weight: 600;
+    font-size: 2.2vw;
+    width: 220px;
+  }
+
+  .boxes .box p:first-child {
+    color: #000;
+    font-size: 2.8vw;
+    font-weight: 600;
   }
 
   .form-box .head p {
@@ -1411,8 +1471,42 @@ li {
     color: #747880;
   }
 
+  .title div,
+  .title h1 {
+    font-size: 4.5vw;
+  }
+
+  .r-img {
+    height: 26vw;
+    animation: show 1s linear 200ms;
+  }
+
+  .left-side p {
+    font-size: 3vw;
+    width: 100%;
+  }
+
   .notes .note .btns button:first-child {
     font-size: 3vw;
+  }
+
+  .boxes .box p:last-child {
+    color: #83858c;
+    font-weight: 600;
+    font-size: 3.4vw;
+    width: 180px;
+  }
+
+  .boxes .box p:first-child {
+    color: #000;
+    font-size: 4.7vw;
+    font-weight: 600;
+  }
+
+  .log-reg-btns button {
+    width: 90px;
+    font-size: 13px;
+    height: 42px;
   }
 
   .inp-box h2 {
