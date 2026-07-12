@@ -58,14 +58,9 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    if (loggedIn) {
-      calc_pending_tasks();
-      calc_completed_tasks();
-    } else {
-      navigate("/");
-      toast.error("You are not logged In ❌");
-    }
-  }, [loggedIn]);
+    calc_pending_tasks();
+    calc_completed_tasks();
+  }, []);
 
   const username = user.username;
 

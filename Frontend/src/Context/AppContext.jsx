@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
   const [subjects, setSubjects] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [notes, setNotes] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
@@ -102,7 +102,7 @@ const AppProvider = ({ children }) => {
     }
 
     auth();
-  }, [loggedIn]);
+  }, []);
 
   const values = {
     loggedIn,
@@ -111,6 +111,7 @@ const AppProvider = ({ children }) => {
     notes,
     setNotes,
     getNotes,
+    loading,
     subjects,
     setSubjects,
     getSubjects,
@@ -123,7 +124,8 @@ const AppProvider = ({ children }) => {
   //prettier-ignore
   return (
           <AppContext.Provider value={values}>
-              {loading ? <Loader /> : children}
+              {/* {loading ? <Loader /> : children} */}
+              {children}
           </AppContext.Provider>
       )
 };
