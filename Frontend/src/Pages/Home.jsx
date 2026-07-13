@@ -4,29 +4,46 @@ import { useNavigate } from "react-router-dom";
 import { BiColor, BiTask } from "react-icons/bi";
 import graduateHat from "../assets/graduate-hat.png";
 import { BiSolidNotepad } from "react-icons/bi";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../Context/AppContext";
 import { FaBook } from "react-icons/fa";
+import axios from "axios";
+import Loader from "../Components/Loader";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const { loggedIn } = useContext(AppContext);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (loggedIn) {
+  const { loggedIn, setLoggedIn } = useContext(AppContext);
+
+  async function auth() {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(
+        "https://studyhub-1ln4.onrender.com/api/auth/auth-user",
+      );
+
+      setLoggedIn(true);
       navigate("/dashboard");
+    } catch (err) {
+      navigate("/login");
+    } finally {
+      setLoading(false);
     }
-  }, [loggedIn]);
+  }
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="Home">
       <div className="home-nav">
         <img src={logo} className="logo" />
         <div className="log-reg-btns">
           <button
             onClick={() => {
-              navigate("/login");
+              auth();
             }}
           >
             Login
@@ -52,7 +69,7 @@ const Home = () => {
           <div className="log-reg-btns">
             <button
               onClick={() => {
-                navigate("/login");
+                auth();
               }}
             >
               Login

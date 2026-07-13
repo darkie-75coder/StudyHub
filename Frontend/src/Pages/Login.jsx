@@ -38,7 +38,7 @@ const Login = () => {
 
       setLoggedIn(true);
       toast.success(data.message);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       toast.error(err.response.data.message);
     } finally {

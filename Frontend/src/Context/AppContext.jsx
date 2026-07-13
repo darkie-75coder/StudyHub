@@ -84,25 +84,18 @@ const AppProvider = ({ children }) => {
       try {
         setLoading(true);
 
-        const { data } = await axios.get(
-          "https://studyhub-1ln4.onrender.com/api/auth/auth-user",
-        );
-
-        await setLoggedIn(true);
-
-        await getUser();
-        await getSubjects();
-        await getTasks();
-        await getNotes();
+        await Promise.all([getUser(), getSubjects(), getTasks(), getNotes()]);
       } catch (err) {
-        setLoggedIn(false);
+        toast.error(err.message);
       } finally {
         setLoading(false);
       }
     }
 
-    auth();
-  }, []);
+    if (loggedIn) {
+      auth();
+    }
+  }, [loggedIn]);
 
   const values = {
     loggedIn,
@@ -124,8 +117,7 @@ const AppProvider = ({ children }) => {
   //prettier-ignore
   return (
           <AppContext.Provider value={values}>
-              {/* {loading ? <Loader /> : children} */}
-              {children}
+              {loading ? <Loader /> : children}
           </AppContext.Provider>
       )
 };
