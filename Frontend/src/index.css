@@ -567,6 +567,10 @@ li {
   font-size: larger;
 }
 
+button {
+  cursor: pointer;
+}
+
 .prof-img {
   height: 3vw;
   display: flex;
@@ -946,7 +950,7 @@ li {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .form-box form {

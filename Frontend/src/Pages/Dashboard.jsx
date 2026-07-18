@@ -60,7 +60,7 @@ const Dashboard = () => {
   useEffect(() => {
     calc_pending_tasks();
     calc_completed_tasks();
-  }, []);
+  }, [tasks]);
 
   const username = user.username;
 
