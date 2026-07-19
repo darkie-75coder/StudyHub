@@ -17,23 +17,6 @@ const Home = () => {
 
   const { loggedIn, setLoggedIn } = useContext(AppContext);
 
-  async function auth() {
-    try {
-      setLoading(true);
-
-      const { data } = await axios.get(
-        "https://studyhub-1ln4.onrender.com/api/auth/auth-user",
-      );
-
-      setLoggedIn(true);
-      navigate("/dashboard");
-    } catch (err) {
-      navigate("/login");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return loading ? (
     <Loader />
   ) : (
@@ -43,7 +26,7 @@ const Home = () => {
         <div className="log-reg-btns">
           <button
             onClick={() => {
-              auth();
+              navigate("/login");
             }}
           >
             Login
@@ -69,7 +52,7 @@ const Home = () => {
           <div className="log-reg-btns">
             <button
               onClick={() => {
-                auth();
+                navigate("/login");
               }}
             >
               Login

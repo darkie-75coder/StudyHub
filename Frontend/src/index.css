@@ -207,7 +207,7 @@ body {
   gap: 10px;
   padding: 10px 20px;
   border-radius: 12px;
-  width: 35vw;
+  width: 55vw;
 }
 
 .login-box form p:nth-child(2) {
@@ -216,13 +216,13 @@ body {
 }
 
 .login-box form p:nth-child(3) {
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   color: #83858c;
   margin-bottom: 18px;
 }
 
 .login-box form p:last-child {
-  font-size: 1vw;
+  font-size: 1.4vw;
   margin-top: 20px;
 }
 
@@ -294,7 +294,7 @@ body {
 
 a {
   color: #315DEB;
-  font-size: 18px;
+  font-size: 1.3vw;
   text-decoration: none;
   align-self: flex-end;
   font-weight: 600;
@@ -1240,6 +1240,10 @@ button {
     overflow: auto;
   }
 
+  .login-box form {
+    width: 36vw;
+  }
+
   .tasks .task .task-btns button:first-child {
     width: 10vw;
   }
@@ -1367,6 +1371,10 @@ button {
 @media (max-width: 850px) {
   .login-box form {
     width: 90vw;
+  }
+
+  a {
+    font-size: 3vw;
   }
 
   .tasks .task .task-btns button:first-child {

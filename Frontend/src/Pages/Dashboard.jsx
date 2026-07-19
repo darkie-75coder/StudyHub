@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Dashboard = () => {
-  const { user, tasks, subjects, notes, toggleTask, loggedIn } =
+  const { user, tasks, subjects, notes, auth, toggleTask, loggedIn } =
     useContext(AppContext);
 
   const [checked, setChecked] = useState(null);

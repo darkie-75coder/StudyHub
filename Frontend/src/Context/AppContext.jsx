@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Loader from "../Components/Loader";
+import { useNavigate } from "react-router-dom";
 
 export const AppContext = createContext();
 
@@ -13,6 +14,8 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
 
@@ -37,9 +40,7 @@ const AppProvider = ({ children }) => {
       );
 
       setUser(data.user);
-    } catch (err) {
-      toast.error(err.message);
-    }
+    } catch (err) {}
   }
 
   async function getSubjects() {
@@ -49,9 +50,7 @@ const AppProvider = ({ children }) => {
       );
 
       setSubjects(data.subjects);
-    } catch (err) {
-      toast.error(err.response.data.message);
-    }
+    } catch (err) {}
   }
 
   async function getTasks() {
@@ -61,9 +60,7 @@ const AppProvider = ({ children }) => {
       );
 
       setTasks(data.tasks);
-    } catch (err) {
-      toast.error(err.message);
-    }
+    } catch (err) {}
   }
 
   async function getNotes() {
@@ -73,34 +70,37 @@ const AppProvider = ({ children }) => {
       );
 
       setNotes(data.notes);
+    } catch (err) {}
+  }
+
+  async function auth() {
+    try {
+      const { data } = await axios.get(
+        "https://studyhub-1ln4.onrender.com/api/auth/auth-user",
+      );
+
+      await getUser();
+      await getSubjects();
+      await getTasks();
+      await getNotes();
+
+      navigate("/dashboard");
     } catch (err) {
-      nav;
-      toast.error(err.message);
+      navigate("/");
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    async function auth() {
-      try {
-        setLoading(true);
-
-        await Promise.all([getUser(), getSubjects(), getTasks(), getNotes()]);
-      } catch (err) {
-        toast.error(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    if (loggedIn) {
-      auth();
-    }
+    auth();
   }, [loggedIn]);
 
   const values = {
     loggedIn,
     setLoggedIn,
     user,
+    auth,
     notes,
     setNotes,
     getNotes,
